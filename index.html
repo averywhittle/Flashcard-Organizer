@@ -12,61 +12,94 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Courier New', 'Consolas', 'Monaco', monospace;
+            background: #000000;
             min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
+            margin: 0;
+            padding: 0;
+            color: #00ffff;
         }
 
-        .container {
-            background: white;
-            border-radius: 20px;
+        .app-layout {
+            display: flex;
+            min-height: 100vh;
+            gap: 0;
+        }
+
+        .sidebar {
+            width: 400px;
+            background: #0a0a0a;
+            border-right: 2px solid #00ffff;
             padding: 30px;
-            max-width: 600px;
-            width: 100%;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow-y: auto;
+            box-shadow: 2px 0 20px rgba(0, 255, 255, 0.2);
+        }
+
+        .main-content {
+            flex: 1;
+            background: #000;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
         }
 
         h1 {
             text-align: center;
-            color: #333;
+            color: #00ffff;
             margin-bottom: 30px;
             font-size: 2em;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-weight: bold;
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+        }
+
+        .ai-section {
+            background: #000;
+            border: 2px solid #00ffff;
+            padding: 20px;
+            margin-bottom: 20px;
+            color: #00ffff;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
         }
 
         .input-section {
-            background: #f7f7f7;
+            background: #1a1a1a;
+            border: 1px solid #333;
             padding: 20px;
-            border-radius: 10px;
             margin-bottom: 30px;
         }
 
-        .input-group {
+        .ai-input-group {
+            display: flex;
+            gap: 10px;
             margin-bottom: 15px;
         }
 
-        label {
-            display: block;
-            margin-bottom: 5px;
-            color: #555;
-            font-weight: 500;
+        .ai-input-group input[type="number"] {
+            width: 100px;
+            flex: 0;
         }
 
-        input[type="text"], textarea {
+        input[type="text"], textarea, input[type="number"] {
             width: 100%;
             padding: 10px;
-            border: 2px solid #e0e0e0;
-            border-radius: 8px;
-            font-size: 16px;
-            transition: border-color 0.3s;
+            border: 1px solid #00ffff;
+            background: #000;
+            color: #00ffff;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            transition: all 0.3s;
         }
 
-        input[type="text"]:focus, textarea:focus {
+        input[type="text"]:focus, textarea:focus, input[type="number"]:focus {
             outline: none;
-            border-color: #667eea;
+            border-color: #00ffff;
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+            background: #0a0a0a;
         }
 
         textarea {
@@ -75,87 +108,94 @@
         }
 
         .btn {
-            background: #667eea;
-            color: white;
-            border: none;
-            padding: 12px 24px;
-            border-radius: 8px;
-            font-size: 16px;
+            background: #000;
+            color: #00ffff;
+            border: 1px solid #00ffff;
+            padding: 15px 20px;
+            font-size: 14px;
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+            text-transform: uppercase;
             cursor: pointer;
-            transition: background 0.3s, transform 0.1s;
-            margin: 5px;
+            transition: all 0.3s;
+            letter-spacing: 1px;
+            width: 100%;
         }
 
         .btn:hover {
-            background: #5a67d8;
+            background: #00ffff;
+            color: #000;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
             transform: translateY(-2px);
         }
 
-        .btn:active {
-            transform: translateY(0);
+        .btn-ai {
+            background: #000;
+            color: #00ffff;
+            border: 2px solid #00ffff;
+            font-weight: bold;
         }
 
-        .btn-secondary {
-            background: #48bb78;
-        }
-
-        .btn-secondary:hover {
-            background: #38a169;
-        }
-
-        .btn-danger {
-            background: #f56565;
-        }
-
-        .btn-danger:hover {
-            background: #e53e3e;
+        .btn-ai:hover {
+            background: #00ffff;
+            color: #000;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.7);
         }
 
         .flashcard-display {
-            min-height: 200px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 15px;
-            padding: 30px;
-            margin-bottom: 20px;
+            min-height: 400px;
+            width: 100%;
+            max-width: 600px;
+            background: #000;
+            border: 3px solid #00ffff;
+            padding: 60px;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            color: white;
+            color: #00ffff;
             position: relative;
             cursor: pointer;
-            transition: transform 0.3s;
+            transition: all 0.3s;
+            margin-bottom: 40px;
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
         }
 
         .flashcard-display:hover {
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
             transform: scale(1.02);
         }
 
         .flashcard-display.empty {
-            background: #f7f7f7;
-            color: #999;
-            border: 2px dashed #ddd;
+            background: #0a0a0a;
+            color: #666;
+            border: 2px dashed #333;
         }
 
         .card-content {
             text-align: center;
-            font-size: 1.2em;
+            font-size: 1.8em;
             line-height: 1.6;
+            font-family: 'Courier New', monospace;
+            width: 100%;
         }
 
         .card-number {
             position: absolute;
-            top: 15px;
-            right: 20px;
-            font-size: 0.9em;
+            top: 20px;
+            right: 30px;
+            font-size: 1.1em;
             opacity: 0.8;
+            font-weight: bold;
         }
 
         .answer {
-            margin-top: 20px;
-            padding-top: 20px;
-            border-top: 2px solid rgba(255,255,255,0.3);
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 2px solid #00ffff;
             display: none;
+            color: #00cccc;
+            font-size: 0.9em;
         }
 
         .answer.show {
@@ -164,28 +204,115 @@
 
         .controls {
             display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .mode-toggle {
+            display: flex;
             justify-content: center;
-            flex-wrap: wrap;
+            margin-bottom: 20px;
             gap: 10px;
+        }
+
+        .mode-btn {
+            padding: 8px 16px;
+            background: #000;
+            border: 1px solid #666;
+            color: #666;
+            cursor: pointer;
+            text-transform: uppercase;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            transition: all 0.3s;
+        }
+
+        .mode-btn.active {
+            border-color: #00ffff;
+            color: #00ffff;
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+        }
+
+        .score-display {
+            width: 100%;
+            max-width: 600px;
+            display: flex;
+            justify-content: space-around;
+            padding: 20px;
+            background: #000;
+            border: 2px solid #00ffff;
+            margin-bottom: 30px;
+        }
+
+        .score-item {
+            text-align: center;
+        }
+
+        .score-label {
+            font-size: 0.8em;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .score-value {
+            font-size: 1.5em;
+            color: #00ffff;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+
+        .guess-section {
+            width: 100%;
+            max-width: 600px;
+            background: #0a0a0a;
+            border: 2px solid #333;
+            padding: 30px;
+            margin-bottom: 30px;
+            display: none;
+        }
+
+        .guess-section.active {
+            display: block;
+        }
+
+        .guess-input-group {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .guess-input {
+            flex: 1;
+            padding: 20px;
+            border: 2px solid #00ffff;
+            background: #000;
+            color: #00ffff;
+            font-family: 'Courier New', monospace;
+            font-size: 18px;
+            text-transform: none;
         }
 
         .stats {
             text-align: center;
-            color: #666;
+            color: #00ffff;
             margin-top: 20px;
             font-size: 0.9em;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
         .flashcard-list {
             margin-top: 30px;
-            border-top: 2px solid #e0e0e0;
+            border-top: 1px solid #333;
             padding-top: 20px;
         }
 
         .flashcard-item {
-            background: #f7f7f7;
+            background: #0a0a0a;
+            border: 1px solid #333;
             padding: 15px;
-            border-radius: 8px;
             margin-bottom: 10px;
             display: flex;
             justify-content: space-between;
@@ -194,86 +321,300 @@
 
         .flashcard-item-text {
             flex: 1;
+            color: #00ffff;
+            font-family: 'Courier New', monospace;
         }
 
-        .btn-small {
-            padding: 5px 10px;
-            font-size: 14px;
+        .error-message, .success-message {
+            padding: 10px;
+            margin-top: 10px;
+            display: none;
+            font-family: 'Courier New', monospace;
         }
 
-        @media (max-width: 600px) {
-            .container {
-                padding: 20px;
-            }
+        .error-message {
+            background: #000;
+            border: 1px solid #ff0000;
+            color: #ff0000;
+        }
 
-            h1 {
-                font-size: 1.5em;
-            }
+        .success-message {
+            background: #000;
+            border: 1px solid #00ff00;
+            color: #00ff00;
+        }
 
-            .controls {
+        /* Responsive Design */
+        @media (max-width: 900px) {
+            .app-layout {
                 flex-direction: column;
             }
-
-            .btn {
+            
+            .sidebar {
                 width: 100%;
+                border-right: none;
+                border-bottom: 2px solid #00ffff;
+            }
+            
+            .main-content {
+                padding: 20px;
+            }
+            
+            .flashcard-display {
+                min-height: 300px;
+                padding: 40px;
+            }
+            
+            .card-content {
+                font-size: 1.4em;
+            }
+            
+            h1 {
+                font-size: 1.5em;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Flashcard Memory Game</h1>
-        
-        <div class="input-section">
-            <h3 style="margin-bottom: 15px; color: #333;">Add New Flashcard</h3>
-            <div class="input-group">
-                <label for="question">Question:</label>
-                <textarea id="question" placeholder="Enter your question here..."></textarea>
+    <div class="app-layout">
+        <!-- Left Sidebar with Controls -->
+        <div class="sidebar">
+            <h1>Flashcard Memory Game</h1>
+            
+            <div class="mode-toggle">
+                <button class="mode-btn active" id="studyMode" onclick="setMode('study')">Study Mode</button>
+                <button class="mode-btn" id="quizMode" onclick="setMode('quiz')">Quiz Mode</button>
             </div>
-            <div class="input-group">
-                <label for="answer">Answer:</label>
-                <textarea id="answer" placeholder="Enter the answer here..."></textarea>
+            
+            <div class="ai-section">
+                <h3 style="margin-bottom: 15px; text-transform: uppercase; letter-spacing: 2px;">AI Flashcard Generator</h3>
+                <div class="ai-input-group">
+                    <input type="text" id="aiTopic" placeholder="Enter a topic or question">
+                    <input type="number" id="cardCount" min="1" max="100" value="20" placeholder="Count">
+                </div>
+                <button class="btn btn-ai" id="generateBtn" onclick="generateFlashcards()">
+                    Generate Flashcards
+                </button>
+                <div style="font-size: 0.9em; opacity: 0.9; margin-top: 10px;">
+                    Examples: "Spanish vocabulary", "Chemistry", "History facts"
+                </div>
+                
+                <div class="error-message" id="errorMessage"></div>
+                <div class="success-message" id="successMessage"></div>
             </div>
-            <button class="btn" onclick="addFlashcard()">Add Flashcard</button>
-        </div>
 
-        <div class="flashcard-display" id="flashcardDisplay" onclick="toggleAnswer()">
-            <div class="card-number" id="cardNumber"></div>
-            <div class="card-content">
-                <div id="questionText">No flashcards yet. Add one above!</div>
-                <div class="answer" id="answerText"></div>
+            <div class="input-section">
+                <h3 style="margin-bottom: 15px; color: #00ffff; text-transform: uppercase; letter-spacing: 2px;">Add Manually</h3>
+                <div style="margin-bottom: 15px;">
+                    <label for="question">Question:</label>
+                    <textarea id="question" placeholder="Enter your question here..."></textarea>
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <label for="answer">Answer:</label>
+                    <textarea id="answer" placeholder="Enter the answer here..."></textarea>
+                </div>
+                <button class="btn" onclick="addFlashcard()">Add Flashcard</button>
+            </div>
+
+            <div class="controls">
+                <button class="btn" onclick="previousCard()">← Previous</button>
+                <button class="btn" id="answerToggleBtn" onclick="toggleAnswer()">Show/Hide Answer</button>
+                <button class="btn" onclick="nextCard()">Next →</button>
+                <button class="btn" onclick="shuffleDeck()">Shuffle Deck</button>
+                <button class="btn" id="quizModeToggle" onclick="toggleQuizMode()">Quiz Mode</button>
+                <button class="btn" style="border-color: #ff0000; color: #ff0000;" onclick="clearAll()">Clear All</button>
+            </div>
+
+            <div class="stats" id="stats">
+                Total Cards: 0
             </div>
         </div>
 
-        <div class="controls">
-            <button class="btn btn-secondary" onclick="previousCard()">Previous</button>
-            <button class="btn" onclick="toggleAnswer()">Show/Hide Answer</button>
-            <button class="btn btn-secondary" onclick="nextCard()">Next</button>
-            <button class="btn" onclick="shuffleDeck()">Shuffle Deck</button>
-            <button class="btn btn-danger" onclick="clearAll()">Clear All</button>
-        </div>
+        <!-- Right Main Content with Flashcards -->
+        <div class="main-content">
+            <div class="score-display" id="scoreDisplay" style="display: none;">
+                <div class="score-item">
+                    <div class="score-label">Correct</div>
+                    <div class="score-value" id="correctCount">0</div>
+                </div>
+                <div class="score-item">
+                    <div class="score-label">Incorrect</div>
+                    <div class="score-value" id="incorrectCount">0</div>
+                </div>
+                <div class="score-item">
+                    <div class="score-label">Streak</div>
+                    <div class="score-value" id="streakCount">0</div>
+                </div>
+                <div class="score-item">
+                    <div class="score-label">Accuracy</div>
+                    <div class="score-value" id="accuracyPercent">0%</div>
+                </div>
+            </div>
 
-        <div class="stats" id="stats">
-            Total Cards: 0
-        </div>
+            <div class="flashcard-display" id="flashcardDisplay" onclick="handleCardClick()">
+                <div class="card-number" id="cardNumber"></div>
+                <div class="card-content">
+                    <div id="questionText">Ready to learn! Use the controls on the left to get started.</div>
+                    <div class="answer" id="answerText"></div>
+                </div>
+            </div>
 
-        <div class="flashcard-list" id="flashcardList" style="display: none;">
-            <h3 style="margin-bottom: 15px; color: #333;">All Flashcards</h3>
-            <div id="cardListContainer"></div>
+            <div class="guess-section" id="guessSection">
+                <h3 style="margin-bottom: 15px; color: #00ffff; text-transform: uppercase; letter-spacing: 2px;">Your Answer</h3>
+                <div class="guess-input-group">
+                    <input 
+                        type="text" 
+                        id="guessInput" 
+                        class="guess-input" 
+                        placeholder="Type your answer and press Enter..."
+                        onkeypress="handleGuessKeypress(event)"
+                    >
+                    <button class="btn" onclick="checkAnswer()">Submit</button>
+                </div>
+                <div id="guessHint" style="color: #888; font-size: 1em; margin-top: 15px;"></div>
+            </div>
         </div>
     </div>
 
     <script>
         let flashcards = [];
         let currentIndex = 0;
+        let currentMode = 'study';
+        let stats = {
+            correct: 0,
+            incorrect: 0,
+            streak: 0,
+            maxStreak: 0,
+            attempts: {}
+        };
 
+        // Ensure functions are available immediately for inline onclick handlers
+        window.setMode = setMode;
+        window.generateFlashcards = generateFlashcards;
+        window.addFlashcard = addFlashcard;
+        window.previousCard = previousCard;
+        window.nextCard = nextCard;
+        window.toggleAnswer = toggleAnswer;
+        window.shuffleDeck = shuffleDeck;
+        window.toggleQuizMode = toggleQuizMode;
+        window.clearAll = clearAll;
+        window.handleCardClick = handleCardClick;
+        window.checkAnswer = checkAnswer;
+        
         // Load flashcards from localStorage on page load
         window.onload = function() {
             loadFlashcards();
             displayCard();
             updateStats();
+            updateCardStats();
             updateCardList();
+            
+            // Initialize mode
+            setMode('study');
+            
+            // Auto-start server check with retry logic
+            setTimeout(() => checkServerStatus(), 500);
         };
+
+        let serverCheckCount = 0;
+        let serverStartAttempted = false;
+
+        async function checkServerStatus() {
+            try {
+                const response = await fetch('http://localhost:3000/api/health');
+                if (response.ok) {
+                    console.log('✅ Server is running');
+                    showServerStatus('connected');
+                    return true;
+                } else {
+                    console.log('Server check failed');
+                    return false;
+                }
+            } catch (error) {
+                console.log('🔍 Server not detected');
+                
+                // Try to auto-start server if not already attempted
+                if (!serverStartAttempted && serverCheckCount === 0) {
+                    serverStartAttempted = true;
+                    attemptServerStart();
+                }
+                
+                serverCheckCount++;
+                
+                // Retry checking for server (it might be starting up)
+                if (serverCheckCount < 10) {
+                    setTimeout(() => checkServerStatus(), 2000);
+                } else {
+                    showServerStatus('failed');
+                }
+                
+                return false;
+            }
+        }
+
+        function attemptServerStart() {
+            console.log('🚀 Attempting to auto-start server...');
+            
+            // Show starting notification
+            showServerStatus('starting');
+            
+            // For security reasons, we can't directly execute npm commands from the browser
+            // Instead, we'll show clear instructions and detect when server comes online
+            
+            // If opened directly as file://, suggest using npm start
+            if (window.location.protocol === 'file:') {
+                console.log('📁 File opened directly. Please use "npm start" to launch with server.');
+                showServerStatus('file-mode');
+            }
+        }
+
+        function showServerStatus(status) {
+            // Remove any existing notifications
+            const existingNotification = document.getElementById('server-notification');
+            if (existingNotification) {
+                existingNotification.remove();
+            }
+            
+            const notification = document.createElement('div');
+            notification.id = 'server-notification';
+            notification.style.cssText = 'position: fixed; bottom: 20px; right: 20px; padding: 15px 20px; border-radius: 8px; font-size: 14px; z-index: 1000; display: flex; align-items: center; gap: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: all 0.3s ease;';
+            
+            switch(status) {
+                case 'connected':
+                    notification.style.background = '#48bb78';
+                    notification.style.color = 'white';
+                    notification.innerHTML = '✅ AI Server Connected';
+                    setTimeout(() => notification.remove(), 3000);
+                    break;
+                    
+                case 'starting':
+                    notification.style.background = '#4299e1';
+                    notification.style.color = 'white';
+                    notification.innerHTML = `
+                        <div class="loading-spinner" style="width: 16px; height: 16px; border-width: 2px;"></div>
+                        <span>Starting AI server...</span>
+                    `;
+                    break;
+                    
+                case 'file-mode':
+                    notification.style.background = '#f6ad55';
+                    notification.style.color = 'white';
+                    notification.innerHTML = `
+                        ⚠️ To enable AI: Run <code style="background: rgba(0,0,0,0.2); padding: 2px 5px; border-radius: 3px;">npm start</code> in terminal
+                    `;
+                    break;
+                    
+                case 'failed':
+                    notification.style.background = '#fc8181';
+                    notification.style.color = 'white';
+                    notification.innerHTML = `
+                        ❌ Server offline. Run: <code style="background: rgba(0,0,0,0.2); padding: 2px 5px; border-radius: 3px;">npm start</code>
+                    `;
+                    break;
+            }
+            
+            document.body.appendChild(notification);
+        }
 
         function loadFlashcards() {
             const stored = localStorage.getItem('flashcards');
@@ -301,18 +642,11 @@
                 // Update display
                 currentIndex = flashcards.length - 1;
                 displayCard();
-                updateStats();
+                updateCardStats();
                 updateCardList();
 
                 // Show success feedback
-                const btn = event.target;
-                const originalText = btn.textContent;
-                btn.textContent = 'Added!';
-                btn.style.background = '#48bb78';
-                setTimeout(() => {
-                    btn.textContent = originalText;
-                    btn.style.background = '';
-                }, 1000);
+                showSuccess('Flashcard added successfully!');
             } else {
                 alert('Please enter both a question and an answer.');
             }
@@ -326,10 +660,12 @@
 
             if (flashcards.length === 0) {
                 display.classList.add('empty');
-                questionText.textContent = 'No flashcards yet. Add one above!';
+                questionText.textContent = 'Ready to learn! Use the controls on the left to get started.';
                 answerText.textContent = '';
                 answerText.classList.remove('show');
                 cardNumber.textContent = '';
+                const guessSection = document.getElementById('guessSection');
+                if (guessSection) guessSection.classList.remove('active');
             } else {
                 display.classList.remove('empty');
                 const card = flashcards[currentIndex];
@@ -337,20 +673,337 @@
                 answerText.textContent = 'Answer: ' + card.answer;
                 answerText.classList.remove('show');
                 cardNumber.textContent = `${currentIndex + 1} / ${flashcards.length}`;
+                
+                // Clear input when displaying new card
+                if (currentMode === 'quiz') {
+                    const guessInput = document.getElementById('guessInput');
+                    const guessHint = document.getElementById('guessHint');
+                    if (guessInput) guessInput.value = '';
+                    if (guessHint) guessHint.textContent = '';
+                }
+            }
+        }
+
+        function setMode(mode) {
+            currentMode = mode;
+            const studyBtn = document.getElementById('studyMode');
+            const quizBtn = document.getElementById('quizMode');
+            const guessSection = document.getElementById('guessSection');
+            const scoreDisplay = document.getElementById('scoreDisplay');
+            const quizToggleBtn = document.getElementById('quizModeToggle');
+            const answerToggleBtn = document.getElementById('answerToggleBtn');
+            
+            // Check if elements exist before using them
+            if (!studyBtn || !quizBtn) {
+                console.error('Mode buttons not found');
+                return;
+            }
+            
+            if (mode === 'quiz') {
+                studyBtn.classList.remove('active');
+                quizBtn.classList.add('active');
+                guessSection.classList.add('active');
+                scoreDisplay.style.display = 'flex';
+                
+                // Update main quiz button
+                quizToggleBtn.textContent = 'Study Mode';
+                quizToggleBtn.style.borderColor = '#00ffff';
+                quizToggleBtn.style.color = '#00ffff';
+                
+                // Hide answer toggle button in quiz mode
+                answerToggleBtn.style.display = 'none';
+                
+                // Reset stats for new quiz session
+                if (flashcards.length > 0) {
+                    const shouldReset = confirm('Start a new quiz session? This will reset your score.');
+                    if (shouldReset) {
+                        resetStats();
+                    }
+                }
+                
+                // Hide answer if showing
+                const answerText = document.getElementById('answerText');
+                answerText.classList.remove('show');
+                
+                // Focus on input if cards exist
+                if (flashcards.length > 0) {
+                    setTimeout(() => {
+                        const guessInput = document.getElementById('guessInput');
+                        if (guessInput) guessInput.focus();
+                    }, 100);
+                }
+            } else {
+                studyBtn.classList.add('active');
+                quizBtn.classList.remove('active');
+                guessSection.classList.remove('active');
+                scoreDisplay.style.display = 'none';
+                
+                // Update main quiz button
+                quizToggleBtn.textContent = 'Quiz Mode';
+                quizToggleBtn.style.borderColor = '#00ffff';
+                quizToggleBtn.style.color = '#00ffff';
+                
+                // Show answer toggle button in study mode
+                answerToggleBtn.style.display = 'block';
+            }
+        }
+        
+        function toggleQuizMode() {
+            if (currentMode === 'study') {
+                setMode('quiz');
+            } else {
+                setMode('study');
+            }
+        }
+
+        function handleCardClick() {
+            if (currentMode === 'study') {
+                toggleAnswer();
             }
         }
 
         function toggleAnswer() {
-            if (flashcards.length > 0) {
+            if (flashcards.length > 0 && currentMode === 'study') {
                 const answerText = document.getElementById('answerText');
                 answerText.classList.toggle('show');
             }
+        }
+
+        function extractCoreAnswer(fullAnswer) {
+            let answer = fullAnswer.trim();
+            console.log('Original answer:', answer);
+            
+            // Remove common prefixes (more comprehensive)
+            answer = answer.replace(/^(answer:\s*|the answer is\s*|it is\s*|this is\s*|the correct answer is\s*|correct answer:\s*|solution:\s*)/i, '').trim();
+            
+            // Extract content within quotes or parentheses
+            const quoteMatch = answer.match(/["']([^"']+)["']/) || answer.match(/\(([^)]+)\)/);
+            if (quoteMatch) {
+                console.log('Found quoted answer:', quoteMatch[1]);
+                return quoteMatch[1].trim().toLowerCase();
+            }
+            
+            // Extract chemical symbols (more flexible pattern)
+            const chemicalSymbol = answer.match(/\b([A-Z][a-z]?(?:[0-9]+)?)\b/);
+            if (chemicalSymbol && answer.length < 30) {
+                console.log('Found chemical symbol:', chemicalSymbol[1]);
+                return chemicalSymbol[1].toLowerCase();
+            }
+            
+            // Extract numbers (including decimals, fractions, percentages)
+            const numberMatch = answer.match(/^-?\d+(?:\.\d+)?(?:%|°)?/) || answer.match(/\b(\d+(?:\.\d+)?(?:%|°)?)\b/);
+            if (numberMatch && answer.length < 20) {
+                console.log('Found number:', numberMatch[0] || numberMatch[1]);
+                return (numberMatch[0] || numberMatch[1]).toLowerCase();
+            }
+            
+            // Extract years (4 digits)
+            const yearMatch = answer.match(/\b((?:19|20)\d{2})\b/);
+            if (yearMatch) {
+                console.log('Found year:', yearMatch[1]);
+                return yearMatch[1];
+            }
+            
+            // Extract single words that are likely answers (proper nouns, etc.)
+            const singleWordMatch = answer.match(/\b([A-Z][a-zA-Z]*)\b/);
+            if (singleWordMatch && answer.split(/\s+/).length <= 3) {
+                console.log('Found single word:', singleWordMatch[1]);
+                return singleWordMatch[1].toLowerCase();
+            }
+            
+            // Remove explanatory text after common delimiters
+            const cleanPatterns = [
+                /^([^,;.!?]+)[\s,;.!?].*/,  // Everything before first punctuation
+                /^([^(]+)\s*\([^)]*\).*/,    // Everything before parentheses
+                /^([^-]+)\s*-\s*.*/,         // Everything before dash
+                /^([^:]+):\s*.*/,            // Everything before colon
+                /^([^|]+)\s*\|\s*.*/         // Everything before pipe
+            ];
+            
+            for (const pattern of cleanPatterns) {
+                const match = answer.match(pattern);
+                if (match) {
+                    let cleaned = match[1].trim();
+                    if (cleaned.length > 0 && cleaned.length < 50) {
+                        console.log('Pattern matched:', cleaned);
+                        answer = cleaned;
+                        break;
+                    }
+                }
+            }
+            
+            // Split into words and take the most likely answer part
+            const words = answer.split(/\s+/);
+            
+            // If 1-2 words, probably the answer
+            if (words.length <= 2) {
+                console.log('Short answer:', answer);
+                return answer.toLowerCase();
+            }
+            
+            // If 3-4 words and short, probably the answer
+            if (words.length <= 4 && answer.length < 30) {
+                console.log('Medium answer:', answer);
+                return answer.toLowerCase();
+            }
+            
+            // Take first 1-3 words as likely core answer
+            const coreWords = words.slice(0, Math.min(3, words.length)).join(' ');
+            console.log('Core words extracted:', coreWords);
+            return coreWords.toLowerCase();
+        }
+
+        function checkAnswer() {
+            if (flashcards.length === 0) return;
+            
+            const guessInput = document.getElementById('guessInput');
+            const userAnswer = guessInput.value.trim().toLowerCase();
+            const fullAnswer = flashcards[currentIndex].answer.toLowerCase();
+            const answerText = document.getElementById('answerText');
+            
+            // Extract core answer from the full answer text
+            const coreAnswer = extractCoreAnswer(fullAnswer);
+            
+            // Multiple ways to check correctness
+            const isCorrect = 
+                // Exact match with core answer
+                userAnswer === coreAnswer ||
+                // Exact match with full answer
+                userAnswer === fullAnswer ||
+                // Core answer contains user answer (for partial matches)
+                (coreAnswer.includes(userAnswer) && userAnswer.length >= 2) ||
+                // User answer contains core answer (in case user gives more detail)
+                (userAnswer.includes(coreAnswer) && coreAnswer.length >= 2) ||
+                // Similarity check with core answer
+                calculateSimilarity(userAnswer, coreAnswer) > 0.8 ||
+                // Similarity check with full answer (lower threshold)
+                calculateSimilarity(userAnswer, fullAnswer) > 0.7;
+            
+            if (isCorrect) {
+                // Correct answer
+                guessInput.classList.remove('incorrect');
+                guessInput.classList.add('correct');
+                
+                stats.correct++;
+                stats.streak++;
+                if (stats.streak > stats.maxStreak) {
+                    stats.maxStreak = stats.streak;
+                }
+                
+                // Show answer briefly
+                answerText.classList.add('show');
+                
+                // Auto-advance after 1.5 seconds
+                setTimeout(() => {
+                    guessInput.value = '';
+                    guessInput.classList.remove('correct');
+                    nextCard();
+                    guessInput.focus();
+                }, 1500);
+                
+                showSuccess('Correct! Moving to next card...');
+            } else {
+                // Incorrect answer
+                guessInput.classList.remove('correct');
+                guessInput.classList.add('incorrect');
+                
+                stats.incorrect++;
+                stats.streak = 0;
+                
+                // Show hint
+                const hint = document.getElementById('guessHint');
+                hint.textContent = `Hint: The answer has ${coreAnswer.length} characters`;
+                
+                setTimeout(() => {
+                    guessInput.classList.remove('incorrect');
+                }, 500);
+            }
+            
+            updateStats();
+        }
+
+        function calculateSimilarity(str1, str2) {
+            const longer = str1.length > str2.length ? str1 : str2;
+            const shorter = str1.length > str2.length ? str2 : str1;
+            
+            if (longer.length === 0) return 1.0;
+            
+            const distance = levenshteinDistance(longer, shorter);
+            return (longer.length - distance) / longer.length;
+        }
+
+        function levenshteinDistance(str1, str2) {
+            const matrix = [];
+            
+            for (let i = 0; i <= str2.length; i++) {
+                matrix[i] = [i];
+            }
+            
+            for (let j = 0; j <= str1.length; j++) {
+                matrix[0][j] = j;
+            }
+            
+            for (let i = 1; i <= str2.length; i++) {
+                for (let j = 1; j <= str1.length; j++) {
+                    if (str2.charAt(i - 1) === str1.charAt(j - 1)) {
+                        matrix[i][j] = matrix[i - 1][j - 1];
+                    } else {
+                        matrix[i][j] = Math.min(
+                            matrix[i - 1][j - 1] + 1,
+                            matrix[i][j - 1] + 1,
+                            matrix[i - 1][j] + 1
+                        );
+                    }
+                }
+            }
+            
+            return matrix[str2.length][str1.length];
+        }
+
+        function handleGuessKeypress(event) {
+            if (event.key === 'Enter') {
+                checkAnswer();
+            }
+        }
+
+        function resetStats() {
+            stats = {
+                correct: 0,
+                incorrect: 0,
+                streak: 0,
+                maxStreak: 0,
+                attempts: {}
+            };
+            updateStats();
+        }
+
+        function updateStats() {
+            const correctCount = document.getElementById('correctCount');
+            const incorrectCount = document.getElementById('incorrectCount');
+            const streakCount = document.getElementById('streakCount');
+            const accuracyPercent = document.getElementById('accuracyPercent');
+            
+            if (correctCount) correctCount.textContent = stats.correct;
+            if (incorrectCount) incorrectCount.textContent = stats.incorrect;
+            if (streakCount) streakCount.textContent = stats.streak;
+            
+            const total = stats.correct + stats.incorrect;
+            const accuracy = total > 0 ? Math.round((stats.correct / total) * 100) : 0;
+            if (accuracyPercent) accuracyPercent.textContent = accuracy + '%';
         }
 
         function nextCard() {
             if (flashcards.length > 0) {
                 currentIndex = (currentIndex + 1) % flashcards.length;
                 displayCard();
+                
+                // Clear guess input and hint in quiz mode
+                if (currentMode === 'quiz') {
+                    const guessInput = document.getElementById('guessInput');
+                    const guessHint = document.getElementById('guessHint');
+                    if (guessInput) guessInput.value = '';
+                    if (guessHint) guessHint.textContent = '';
+                }
             }
         }
 
@@ -383,59 +1036,173 @@
         }
 
         function clearAll() {
-            if (flashcards.length > 0 && confirm('Are you sure you want to delete all flashcards?')) {
+            if (confirm('This will delete all flashcards and reset the app completely. Are you sure?')) {
+                // Clear all data
                 flashcards = [];
                 currentIndex = 0;
-                saveFlashcards();
+                
+                // Clear localStorage completely
+                localStorage.removeItem('flashcards');
+                localStorage.clear();
+                
+                // Reset to study mode
+                setMode('study');
+                resetStats();
+                
+                // Reset UI
                 displayCard();
                 updateStats();
+                updateCardStats();
                 updateCardList();
+                
+                // Clear any input fields safely
+                const questionField = document.getElementById('question');
+                const answerField = document.getElementById('answer');
+                const aiTopicField = document.getElementById('aiTopic');
+                const guessInputField = document.getElementById('guessInput');
+                const guessHintField = document.getElementById('guessHint');
+                
+                if (questionField) questionField.value = '';
+                if (answerField) answerField.value = '';
+                if (aiTopicField) aiTopicField.value = '';
+                if (guessInputField) guessInputField.value = '';
+                if (guessHintField) guessHintField.textContent = '';
+                
+                // Hide any visible messages
+                hideMessages();
+                
+                // Clear any CSS classes on inputs
+                if (guessInputField) {
+                    guessInputField.classList.remove('correct', 'incorrect');
+                }
+                
+                // Show feedback
+                showSuccess('App has been completely reset!');
             }
         }
 
-        function deleteCard(index) {
-            flashcards.splice(index, 1);
-            if (currentIndex >= flashcards.length && currentIndex > 0) {
-                currentIndex = flashcards.length - 1;
-            }
-            saveFlashcards();
-            displayCard();
-            updateStats();
-            updateCardList();
-        }
-
-        function updateStats() {
-            document.getElementById('stats').textContent = `Total Cards: ${flashcards.length}`;
+        function updateCardStats() {
+            const stats = document.getElementById('stats');
+            if (stats) stats.textContent = `Total Cards: ${flashcards.length}`;
         }
 
         function updateCardList() {
-            const listContainer = document.getElementById('flashcardList');
-            const cardListContainer = document.getElementById('cardListContainer');
-            
-            if (flashcards.length > 0) {
-                listContainer.style.display = 'block';
-                cardListContainer.innerHTML = '';
-                
-                flashcards.forEach((card, index) => {
-                    const item = document.createElement('div');
-                    item.className = 'flashcard-item';
-                    
-                    const text = document.createElement('div');
-                    text.className = 'flashcard-item-text';
-                    text.innerHTML = `<strong>Q:</strong> ${card.question.substring(0, 50)}${card.question.length > 50 ? '...' : ''}`;
-                    
-                    const deleteBtn = document.createElement('button');
-                    deleteBtn.className = 'btn btn-danger btn-small';
-                    deleteBtn.textContent = 'Delete';
-                    deleteBtn.onclick = () => deleteCard(index);
-                    
-                    item.appendChild(text);
-                    item.appendChild(deleteBtn);
-                    cardListContainer.appendChild(item);
-                });
-            } else {
-                listContainer.style.display = 'none';
+            // Placeholder for card list functionality
+        }
+
+        async function generateFlashcards() {
+            const topic = document.getElementById('aiTopic').value.trim();
+            const count = parseInt(document.getElementById('cardCount').value) || 20;
+            const generateBtn = document.getElementById('generateBtn');
+
+            if (!topic) {
+                showError('Please enter a topic or question');
+                return;
             }
+
+            // Check if server is running
+            try {
+                const healthCheck = await fetch('http://localhost:3000/api/health');
+                const health = await healthCheck.json();
+                if (!health.apiKeyConfigured) {
+                    showError('OpenAI API key not configured. Please add your API key to the .env file.');
+                    return;
+                }
+            } catch (error) {
+                showError('AI server is not running. Please run "npm start" in the terminal.');
+                // Try to check server status again
+                checkServerStatus();
+                return;
+            }
+
+            // Disable button and show loading
+            generateBtn.disabled = true;
+            generateBtn.innerHTML = `Generating ${count} cards...`;
+            hideMessages();
+
+            try {
+                const response = await fetch('http://localhost:3000/api/generate-flashcards', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ topic, count })
+                });
+
+                const data = await response.json();
+
+                if (!response.ok) {
+                    throw new Error(data.error || 'Failed to generate flashcards');
+                }
+
+                if (data.flashcards && data.flashcards.length > 0) {
+                    // Ask user if they want to replace or append
+                    const replace = flashcards.length === 0 || 
+                        confirm(`You have ${flashcards.length} existing flashcards. Do you want to REPLACE them?\n\nClick OK to replace, Cancel to add to existing deck.`);
+                    
+                    if (replace) {
+                        flashcards = data.flashcards;
+                        currentIndex = 0;
+                    } else {
+                        flashcards = flashcards.concat(data.flashcards);
+                    }
+                    
+                    saveFlashcards();
+                    displayCard();
+                    updateCardStats();
+                    updateCardList();
+                    
+                    // Show success message with warning if count didn't match
+                    let message = `Successfully generated ${data.flashcards.length} flashcards!`;
+                    if (data.warning) {
+                        message = `${data.warning}\n\nThis can happen with complex topics or when the AI has difficulty generating unique content.`;
+                        console.warn('Generation warning:', data.warning);
+                    } else if (data.flashcards.length === count) {
+                        message = `Successfully generated exactly ${count} flashcards!`;
+                    }
+                    
+                    showSuccess(message);
+                    document.getElementById('aiTopic').value = '';
+                } else {
+                    throw new Error('No flashcards were generated');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                showError(error.message);
+            } finally {
+                // Re-enable button
+                generateBtn.disabled = false;
+                generateBtn.innerHTML = 'Generate Flashcards';
+            }
+        }
+
+        function showError(message) {
+            const errorMessage = document.getElementById('errorMessage');
+            if (errorMessage) {
+                errorMessage.textContent = message;
+                errorMessage.style.display = 'block';
+                setTimeout(() => {
+                    errorMessage.style.display = 'none';
+                }, 5000);
+            }
+        }
+
+        function showSuccess(message) {
+            const successMessage = document.getElementById('successMessage');
+            if (successMessage) {
+                successMessage.textContent = message;
+                successMessage.style.display = 'block';
+                setTimeout(() => {
+                    successMessage.style.display = 'none';
+                }, 5000);
+            }
+        }
+
+        function hideMessages() {
+            const errorMessage = document.getElementById('errorMessage');
+            const successMessage = document.getElementById('successMessage');
+            if (errorMessage) errorMessage.style.display = 'none';
+            if (successMessage) successMessage.style.display = 'none';
         }
 
         // Keyboard shortcuts
@@ -458,6 +1225,20 @@
                     break;
             }
         });
+        
+        // Ensure all functions are available globally for inline onclick handlers
+        window.setMode = setMode;
+        window.generateFlashcards = generateFlashcards;
+        window.addFlashcard = addFlashcard;
+        window.previousCard = previousCard;
+        window.nextCard = nextCard;
+        window.toggleAnswer = toggleAnswer;
+        window.shuffleDeck = shuffleDeck;
+        window.toggleQuizMode = toggleQuizMode;
+        window.clearAll = clearAll;
+        window.handleCardClick = handleCardClick;
+        window.checkAnswer = checkAnswer;
+        window.handleGuessKeypress = handleGuessKeypress;
     </script>
 </body>
 </html>
